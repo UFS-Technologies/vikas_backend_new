@@ -404,7 +404,7 @@ router.get('/Search_Finished_Goods_Stock_Consolidated_Report/',function(req,res,
 try 
 {
   Production.Search_Finished_Goods_Stock_Consolidated_Report(req.query.Is_Date_Check_,req.query.FromDate_,req.query.ToDate_,
-    req.query.Status_Id, req.query.ItemId, req.query.Product_Code,function (err, rows)
+    req.query.Status_Id, req.query.ItemId, req.query.Product_Code,req.query.Company_Id,function (err, rows)
 {
 if (err) 
 {
@@ -580,7 +580,7 @@ router.get('/Search_Conception_Report_of_Raw_Material/',function(req,res,next)
 try 
 {
   Production.Search_Conception_Report_of_Raw_Material(req.query.Is_Date_Check_,req.query.FromDate_,req.query.ToDate_,
-    req.query.Status_Id, req.query.ItemId, req.query.Product_Code,function (err, rows)
+    req.query.Status_Id, req.query.ItemId, req.query.Product_Code,req.query.Company_Id,function (err, rows)
 {
 if (err) 
 {

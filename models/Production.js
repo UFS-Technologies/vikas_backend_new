@@ -143,10 +143,10 @@ Search_Production_List:function(Is_Date_Check_,FromDate_,ToDate_,Account_Party_I
 },
 
 
-Search_Finished_Goods_Stock_Consolidated_Report:function(Is_Date_Check_,From_date_,To_date_,Status_Id,ItemId,Product_Code,callback)
+Search_Finished_Goods_Stock_Consolidated_Report:function(Is_Date_Check_,From_date_,To_date_,Status_Id,ItemId,Product_Code,Company_Id,callback)
 {
-    return db.query("call Search_Finished_Goods_Stock_Consolidated_Report(@Is_Date_Check_ :=?,@From_date_ :=?,@To_date_ :=?,@Status_Id :=?,@ItemId :=?,@Product_Code :=?)",
-        [Is_Date_Check_, From_date_, To_date_,Status_Id,ItemId,Product_Code],callback)
+    return db.query("call Search_Finished_Goods_Stock_Consolidated_Report(@Is_Date_Check_ :=?,@From_date_ :=?,@To_date_ :=?,@Status_Id :=?,@ItemId :=?,@Product_Code :=?,@Company_Id :=?)",
+        [Is_Date_Check_, From_date_, To_date_,Status_Id,ItemId,Product_Code,Company_Id],callback)
 },
 
 Search_Production_Summary_Report:function(Is_Date_Check_,From_date_,To_date_,Status_Id,ItemId,Product_Code,callback)
@@ -167,10 +167,10 @@ Search_Sales_Report:function(Is_Date_Check_,From_date_,To_date_,Status_Id,ItemId
         [Is_Date_Check_, From_date_, To_date_,Status_Id,ItemId,Product_Code],callback)
 },
 
-Search_Conception_Report_of_Raw_Material:function(Is_Date_Check_,From_date_,To_date_,Status_Id,ItemId,Product_Code,callback)
+Search_Conception_Report_of_Raw_Material:function(Is_Date_Check_,From_date_,To_date_,Status_Id,ItemId,Product_Code,Company_Id,callback)
 {
-    return db.query("call Search_Conception_Report_of_Raw_Material(@Is_Date_Check_ :=?,@From_date_ :=?,@To_date_ :=?,@Status_Id :=?,@ItemId :=?,@Product_Code :=?)",
-        [Is_Date_Check_, From_date_, To_date_,Status_Id,ItemId,Product_Code],callback)
+    return db.query("call Search_Conception_Report_of_Raw_Material(@Is_Date_Check_ :=?,@From_date_ :=?,@To_date_ :=?,@Status_Id :=?,@ItemId :=?,@Product_Code :=?,@Company_Id :=?)",
+        [Is_Date_Check_, From_date_, To_date_,Status_Id,ItemId,Product_Code,Company_Id],callback)
 },
 
 Search_Production_consolidate_Report:function(Is_Date_Check_,From_date_,To_date_,Status_Id,ItemId,Product_Code,Shift_Details_Id,callback)

@@ -665,7 +665,7 @@ try
 {
 if (err) 
 {
-
+  console.log(err);
 res.json(err);
 }
 else 
@@ -676,6 +676,7 @@ res.json(rows);
 }
 catch (e) 
 {
+  console.log(e);
 }
 finally 
 {
