@@ -347,6 +347,21 @@ var Stock_Transfer_Master = {
     );
   },
 
+
+  Current_Stock_Quantity: function (
+    Stock_Id_,
+    WareHouse_Id_,
+    Company_Id_,
+    callback
+  ) {
+   
+    return db.query(
+      "CALL Current_Stock_Quantity(@Stock_Id_ :=?,@WareHouse_Id_ :=?,@Company_Id_:=?)",
+      [Stock_Id_, WareHouse_Id_, Company_Id_],
+      callback
+    );
+  },
+
   Get_Stock_Quantity_Details: function (
     Stock_Id_,
     WareHouse_Id_,

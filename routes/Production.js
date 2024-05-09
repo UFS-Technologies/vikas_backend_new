@@ -268,7 +268,7 @@ router.get('/Search_Production_List/',function(req,res,next)
     try 
     {
       Production.Search_Production_List(req.query.Is_Date_Check_,req.query.FromDate_,req.query.ToDate_,
-      req.query.Account_Party_Id_,req.query.Po_Number,req.query.PI_Number,req.query.User_Type,req.query.Employee_Id_,function (err, rows) 
+      req.query.Order_Status_Id_,req.query.Po_Number,req.query.PI_Number,req.query.User_Type,req.query.Employee_Id_,function (err, rows) 
     {
     if (err) 
     {

@@ -9,6 +9,22 @@ router.post("/Save_Proforma_Invoice_Master/", async function (req, res, next) {
     );
     return res.send(resp);
   } catch (e) {
+    console.log(e)
+    return res.send(e);
+  }
+});
+
+
+
+router.post("/Save_Confirmation_Master/", async function (req, res, next) {
+  try {
+    console.log(req);
+    const resp = await Proforma_Invoice_Master.Save_Confirmation_Master(
+      req.body
+    );
+    return res.send(resp);
+  } catch (e) {
+    console.log(e)
     return res.send(e);
   }
 });

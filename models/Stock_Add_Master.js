@@ -131,6 +131,22 @@ var Stock_Add_Master = {
     );
   },
 
+
+  Search_Transaction_Report: function (
+    ItemId,
+    WareHouse_Id,
+    Company_Id,
+    Item_Group_Id,
+    callback
+  ) {
+    // console.log(ItemId,WareHouse_Id,Company_Id);
+    return db.query(
+      "CALL Search_Transaction_Report(@ItemId :=?,@WareHouse_Id :=?,@Company_Id :=?,@Item_Group_Id :=?)",
+      [ItemId, WareHouse_Id, Company_Id, Item_Group_Id],
+      callback
+    );
+  },
+
   Search_Production_No_Typeahead: function (Production_No_, callback) {
     if (
       Production_No_ === "undefined" ||
@@ -142,6 +158,22 @@ var Stock_Add_Master = {
     return db.query(
       "CALL Search_Production_No_Typeahead(@Production_No_ :=?)",
       [Production_No_],
+      callback
+    );
+  },
+
+
+  Search_Purchase_No_Typeahead: function (Purchase_Order_Master_Id_, callback) {
+    if (
+      Purchase_Order_Master_Id_ === "undefined" ||
+      Purchase_Order_Master_Id_ === "" ||
+      Purchase_Order_Master_Id_ === undefined
+    )
+      Purchase_Order_Master_Id_ = 0;
+
+    return db.query(
+      "CALL Search_Purchase_No_Typeahead(@Purchase_Order_Master_Id_ :=?)",
+      [Purchase_Order_Master_Id_],
       callback
     );
   },
@@ -204,6 +236,22 @@ var Stock_Add_Master = {
     return db.query(
       "CALL Get_Production_Details_From_Typeahead(@Production_No_ :=?)",
       [Production_No_],
+      callback
+    );
+  },
+
+
+  Get_Purchase_Details_From_Typeahead: function (Purchase_Order_Master_Id_, callback) {
+    if (
+      Purchase_Order_Master_Id_ === "undefined" ||
+      Purchase_Order_Master_Id_ === "" ||
+      Purchase_Order_Master_Id_ === undefined
+    )
+      Purchase_Order_Master_Id_ = 0;
+
+    return db.query(
+      "CALL Get_Purchase_Details_From_Typeahead(@Purchase_Order_Master_Id_ :=?)",
+      [Purchase_Order_Master_Id_],
       callback
     );
   },

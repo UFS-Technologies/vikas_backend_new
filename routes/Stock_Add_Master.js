@@ -162,10 +162,50 @@ router.get("/Search_Stock_Report/", function (req, res, next) {
   }
 });
 
+
+router.get("/Search_Transaction_Report/", function (req, res, next) {
+  try {
+    Stock_Add_Master.Search_Transaction_Report(
+      req.query.ItemId,
+      req.query.WareHouse_Id,
+      req.query.Company_Id,
+      req.query.Item_Group_Id,
+      function (err, rows) {
+        if (err) {
+          res.json(err);
+        } else {
+          res.json(rows);
+        }
+      }
+    );
+  } catch (e) {
+    console.log(e);
+  } finally {
+  }
+});
+
 router.get("/Search_Production_No_Typeahead/", function (req, res, next) {
   try {
     Stock_Add_Master.Search_Production_No_Typeahead(
       req.query.Production_No_,
+      function (err, rows) {
+        if (err) {
+          res.json(err);
+        } else {
+          res.json(rows);
+        }
+      }
+    );
+  } catch (e) {
+  } finally {
+  }
+});
+
+
+router.get("/Search_Purchase_No_Typeahead/", function (req, res, next) {
+  try {
+    Stock_Add_Master.Search_Purchase_No_Typeahead(
+      req.query.Purchase_Order_Master_Id_,
       function (err, rows) {
         if (err) {
           res.json(err);
@@ -251,6 +291,28 @@ router.get(
     }
   }
 );
+
+
+router.get(
+  "/Get_Purchase_Details_From_Typeahead/",
+  function (req, res, next) {
+    try {
+      Stock_Add_Master.Get_Purchase_Details_From_Typeahead(
+        req.query.Purchase_Order_Master_Id_,
+        function (err, rows) {
+          if (err) {
+            res.json(err);
+          } else {
+            res.json(rows);
+          }
+        }
+      );
+    } catch (e) {
+    } finally {
+    }
+  }
+);
+
 
 router.get(
   "/Get_Production_Details_From_PalletTypeahead/",

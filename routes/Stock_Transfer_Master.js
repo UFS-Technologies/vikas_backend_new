@@ -269,6 +269,32 @@ router.get(
   }
 );
 
+
+
+
+router.get(
+  "/Current_Stock_Quantity/:Stock_Id_ ?/:WareHouse_Id_?/:Company_Id_?",
+  function (req, res, next) {
+    try {
+      Stock_Transfer_Master.Current_Stock_Quantity(
+        req.params.Stock_Id_,
+        req.params.WareHouse_Id_,
+        req.params.Company_Id_,
+        function (err, rows) {
+          if (err) {
+            res.json(err);
+          } else {
+            res.json(rows);
+          }
+        }
+      );
+    } catch (e) {
+    } finally {
+    }
+  }
+);
+
+
 router.get(
   "/Get_Stock_Quantity_Details/:Stock_Id_ ?/:WareHouse_Id_?/:Company_Id_?",
   function (req, res, next) {

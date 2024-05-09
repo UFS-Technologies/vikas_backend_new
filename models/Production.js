@@ -115,10 +115,10 @@ return db.query("CALL Get_Production_From_Porforma(@Production_Master_Id_ :=?)",
 },
 
 
-Search_Production_List:function(Is_Date_Check_,FromDate_,ToDate_,Account_Party_Id_,PONo_,PInvoiceNo_,User_Type,Employee_Id_,callback)
+Search_Production_List:function(Is_Date_Check_,FromDate_,ToDate_,Order_Status_Id_,PONo_,PInvoiceNo_,User_Type,Employee_Id_,callback)
     { 
-    return db.query("CALL Search_Production_List(@Is_Date_Check_ :=?,@FromDate_ :=?,@ToDate_ :=?,@Account_Party_Id_ :=?,@PONo_ :=?,@InvoiceNo_ :=?,@User_Type :=?,@Employee_Id_ :=?)",
-    [Is_Date_Check_,FromDate_,ToDate_,Account_Party_Id_,PONo_,PInvoiceNo_,User_Type,Employee_Id_],callback);
+    return db.query("CALL Search_Production_List(@Is_Date_Check_ :=?,@FromDate_ :=?,@ToDate_ :=?,@Order_Status_Id_ :=?,@PONo_ :=?,@InvoiceNo_ :=?,@User_Type :=?,@Employee_Id_ :=?)",
+    [Is_Date_Check_,FromDate_,ToDate_,Order_Status_Id_,PONo_,PInvoiceNo_,User_Type,Employee_Id_],callback);
     },
     Search_Production_Completed_List:function(Is_Date_Check_,FromDate_,ToDate_,Account_Party_Id_,PONo_,PInvoiceNo_,User_Type,Employee_Id_,callback)
     { 
