@@ -87,6 +87,10 @@ var Item = {
     return db.query("CALL Load_Process()", [], callback);
   },
 
+  Load_Damage_Type: function (callback) {
+    return db.query("CALL Load_Damage_Type()", [], callback);
+  },
+
   Search_Item: function (Item_Name_, Group_Id_, callback) {
     if (
       Item_Name_ === "undefined" ||

@@ -45,6 +45,7 @@ var Shift_Details = {
       let result1;
       var connection = await pool.getConnection();
       var Wastage_ = Shift_End_.Shift_End_Details_Wastage;
+      var Damage_ = Shift_End_.Damage_Details_Type_Data;
       try {
         console.log(Shift_End_);
         const result1 = await new storedProcedure(
@@ -81,6 +82,10 @@ var Shift_Details = {
             Shift_End_.Wastage_Length,
             Shift_End_.Shift_End_Details,
             Wastage_,
+            Damage_,
+            Shift_End_.status,
+            Shift_End_.Damage_Type_Id,
+            Shift_End_.Damage_Type_Name,
           ],
           connection
         ).result();

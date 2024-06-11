@@ -131,6 +131,106 @@ var Stock_Add_Master = {
     );
   },
 
+  Search_Daily_Punching_Data_Report: function (
+    ItemId,
+    WareHouse_Id,
+    Company_Id,
+    Item_Group_Id,
+    callback
+  ) {
+    // console.log(ItemId,WareHouse_Id,Company_Id);
+    return db.query(
+      "CALL Search_Daily_Punching_Data_Report(@ItemId :=?,@WareHouse_Id :=?,@Company_Id :=?,@Item_Group_Id :=?)",
+      [ItemId, WareHouse_Id, Company_Id, Item_Group_Id],
+      callback
+    );
+  },
+
+
+
+  Search_Daily_Report: function (
+    ItemId,
+    WareHouse_Id,
+    Company_Id,
+    Item_Group_Id,
+    callback
+  ) {
+    // console.log(ItemId,WareHouse_Id,Company_Id);
+    return db.query(
+      "CALL Search_Daily_Report(@ItemId :=?,@WareHouse_Id :=?,@Company_Id :=?,@Item_Group_Id :=?)",
+      [ItemId, WareHouse_Id, Company_Id, Item_Group_Id],
+      callback
+    );
+  },
+
+
+  Search_Daily_Production_Data_Report: function (
+    ItemId,
+    WareHouse_Id,
+    Company_Id,
+    Item_Group_Id,
+    callback
+  ) {
+    // console.log(ItemId,WareHouse_Id,Company_Id);
+    return db.query(
+      "CALL Search_Daily_Production_Data_Report(@ItemId :=?,@WareHouse_Id :=?,@Company_Id :=?,@Item_Group_Id :=?)",
+      [ItemId, WareHouse_Id, Company_Id, Item_Group_Id],
+      callback
+    );
+  },
+
+
+
+  Search_Mat_Store_Stock_Vikas_Report: function (
+    ItemId,
+    WareHouse_Id,
+    Company_Id,
+    Item_Group_Id,
+    callback
+  ) {
+    // console.log(ItemId,WareHouse_Id,Company_Id);
+    return db.query(
+      "CALL Search_Mat_Store_Stock_Vikas_Report(@ItemId :=?,@WareHouse_Id :=?,@Company_Id :=?,@Item_Group_Id :=?)",
+      [ItemId, WareHouse_Id, Company_Id, Item_Group_Id],
+      callback
+    );
+  },
+
+  Search_Packing_Material_Stock_Report: function (
+    ItemId,
+    WareHouse_Id,
+    Company_Id,
+    Item_Group_Id,
+    callback
+  ) {
+    // console.log(ItemId,WareHouse_Id,Company_Id);
+    return db.query(
+      "CALL Search_Packing_Material_Stock_Report(@ItemId :=?,@WareHouse_Id :=?,@Company_Id :=?,@Item_Group_Id :=?)",
+      [ItemId, WareHouse_Id, Company_Id, Item_Group_Id],
+      callback
+    );
+  },
+
+
+
+  Search_Mat_Stock_New_Pattern_Report: function (
+    ItemId,
+    WareHouse_Id,
+    Company_Id,
+    Item_Group_Id,
+    callback
+  ) {
+    // console.log(ItemId,WareHouse_Id,Company_Id);
+    return db.query(
+      "CALL Search_Mat_Stock_New_Pattern_Report(@ItemId :=?,@WareHouse_Id :=?,@Company_Id :=?,@Item_Group_Id :=?)",
+      [ItemId, WareHouse_Id, Company_Id, Item_Group_Id],
+      callback
+    );
+  },
+
+
+
+
 
   Search_Transaction_Report: function (
     ItemId,

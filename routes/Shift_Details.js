@@ -60,6 +60,7 @@ router.post("/Save_Shift_End/", async function (req, res, next) {
     const resp = await Shift_Details.Save_Shift_End(req.body);
     return res.send(resp);
   } catch (e) {
+    console.log(e);
     return res.send(e);
   }
 });

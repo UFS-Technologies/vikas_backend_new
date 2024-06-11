@@ -163,6 +163,137 @@ router.get("/Search_Stock_Report/", function (req, res, next) {
 });
 
 
+router.get("/Search_Daily_Punching_Data_Report/", function (req, res, next) {
+  try {
+    Stock_Add_Master.Search_Daily_Punching_Data_Report(
+      req.query.ItemId,
+      req.query.WareHouse_Id,
+      req.query.Company_Id,
+      req.query.Item_Group_Id,
+      function (err, rows) {
+        if (err) {
+          res.json(err);
+        } else {
+          res.json(rows);
+        }
+      }
+    );
+  } catch (e) {
+    console.log(e);
+  } finally {
+  }
+});
+
+
+router.get("/Search_Daily_Report/", function (req, res, next) {
+  try {
+    Stock_Add_Master.Search_Daily_Report(
+      req.query.ItemId,
+      req.query.WareHouse_Id,
+      req.query.Company_Id,
+      req.query.Item_Group_Id,
+      function (err, rows) {
+        if (err) {
+          res.json(err);
+        } else {
+          res.json(rows);
+        }
+      }
+    );
+  } catch (e) {
+    console.log(e);
+  } finally {
+  }
+});
+
+
+router.get("/Search_Daily_Production_Data_Report/", function (req, res, next) {
+  try {
+    Stock_Add_Master.Search_Daily_Production_Data_Report(
+      req.query.ItemId,
+      req.query.WareHouse_Id,
+      req.query.Company_Id,
+      req.query.Item_Group_Id,
+      function (err, rows) {
+        if (err) {
+          res.json(err);
+        } else {
+          res.json(rows);
+        }
+      }
+    );
+  } catch (e) {
+    console.log(e);
+  } finally {
+  }
+});
+
+router.get("/Search_Mat_Store_Stock_Vikas_Report/", function (req, res, next) {
+  try {
+    Stock_Add_Master.Search_Mat_Store_Stock_Vikas_Report(
+      req.query.ItemId,
+      req.query.WareHouse_Id,
+      req.query.Company_Id,
+      req.query.Item_Group_Id,
+      function (err, rows) {
+        if (err) {
+          res.json(err);
+        } else {
+          res.json(rows);
+        }
+      }
+    );
+  } catch (e) {
+    console.log(e);
+  } finally {
+  }
+});
+
+
+router.get("/Search_Packing_Material_Stock_Report/", function (req, res, next) {
+  try {
+    Stock_Add_Master.Search_Packing_Material_Stock_Report(
+      req.query.ItemId,
+      req.query.WareHouse_Id,
+      req.query.Company_Id,
+      req.query.Item_Group_Id,
+      function (err, rows) {
+        if (err) {
+          res.json(err);
+        } else {
+          res.json(rows);
+        }
+      }
+    );
+  } catch (e) {
+    console.log(e);
+  } finally {
+  }
+});
+
+
+router.get("/Search_Mat_Stock_New_Pattern_Report/", function (req, res, next) {
+  try {
+    Stock_Add_Master.Search_Mat_Stock_New_Pattern_Report(
+      req.query.ItemId,
+      req.query.WareHouse_Id,
+      req.query.Company_Id,
+      req.query.Item_Group_Id,
+      function (err, rows) {
+        if (err) {
+          res.json(err);
+        } else {
+          res.json(rows);
+        }
+      }
+    );
+  } catch (e) {
+    console.log(e);
+  } finally {
+  }
+});
+
+
 router.get("/Search_Transaction_Report/", function (req, res, next) {
   try {
     Stock_Add_Master.Search_Transaction_Report(

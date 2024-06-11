@@ -126,6 +126,20 @@ router.get("/Load_Process/", function (req, res, next) {
   }
 });
 
+router.get("/Load_Damage_Type/", function (req, res, next) {
+  try {
+    Item.Load_Damage_Type(function (err, rows) {
+      if (err) {
+        res.json(err);
+      } else {
+        res.json(rows);
+      }
+    });
+  } catch (e) {
+  } finally {
+  }
+});
+
 router.get("/Delete_Item/:Item_Id_?", function (req, res, next) {
   try {
     Item.Delete_Item(req.params.Item_Id_, function (err, rows) {
