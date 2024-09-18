@@ -37,6 +37,7 @@ var Stock_Transfer_Master = {
     });
   },
   Save_Pallets_Transfer: function (Pallets_Master_, callback) {
+    console.log(Pallets_Master_);
     return db.query(
       "CALL Save_Pallets_Transfer(" +
         "@Pallets_Master_Id_ :=?," +

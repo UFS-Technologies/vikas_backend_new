@@ -6,8 +6,8 @@ Save_HSN:function(HSN_,callback)
     { 
         
         return db.query("CALL Save_HSN("+"@HSN_Id_ :=?,"+"@HSN_CODE_ :=?,"+"@CGST_ :=?,"+"@SGST_ :=?,"+
-        "@IGST_ :=?,"+"@GST_ :=?,"+"@Is_Check_ :=?"+")" ,
-        [HSN_.HSN_Id,HSN_.HSN_CODE,HSN_.CGST,HSN_.SGST,HSN_.IGST,HSN_.GST,HSN_.Is_Check,],callback);
+        "@IGST_ :=?,"+"@GST_ :=?,"+"@Is_Check_ :=?,"+"@Description_ :=?"+")" ,
+        [HSN_.HSN_Id,HSN_.HSN_CODE,HSN_.CGST,HSN_.SGST,HSN_.IGST,HSN_.GST,HSN_.Is_Check,HSN_.Description],callback);
     } ,
 Delete_HSN:function(HSN_Id_,callback)
     { 

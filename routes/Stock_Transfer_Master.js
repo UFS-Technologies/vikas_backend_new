@@ -18,12 +18,14 @@ router.post("/Save_Pallets_Transfer/", function (req, res, next) {
   try {
     Stock_Transfer_Master.Save_Pallets_Transfer(req.body, function (err, rows) {
       if (err) {
+        console.log(err)
         res.json(err);
       } else {
         res.json(rows);
       }
     });
   } catch (e) {
+    console.log(e)
   } finally {
   }
 });

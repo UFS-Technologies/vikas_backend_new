@@ -91,16 +91,24 @@ var Item = {
     return db.query("CALL Load_Damage_Type()", [], callback);
   },
 
-  Search_Item: function (Item_Name_, Group_Id_, callback) {
+  Search_Item: function (Item_Name_, Group_Id_,Item_Code_, callback) {
     if (
       Item_Name_ === "undefined" ||
       Item_Name_ === "" ||
       Item_Name_ === undefined
     )
       Item_Name_ = "";
+
+      if (
+        Item_Code_ === "undefined" ||
+        Item_Code_ === "" ||
+        Item_Code_ === undefined
+      )
+        Item_Code_ = "";
+
     return db.query(
-      "CALL Search_Item(@Item_Name_ :=?,@Group_Id_ :=?)",
-      [Item_Name_, Group_Id_],
+      "CALL Search_Item(@Item_Name_ :=?,@Group_Id_ :=?,@Item_Code_ :=?)",
+      [Item_Name_, Group_Id_,Item_Code_],
       callback
     );
   },

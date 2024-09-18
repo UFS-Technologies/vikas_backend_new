@@ -221,5 +221,20 @@ router.get('/Client_Employee_Typeahead/:Client_Accounts_Id_?',function(req,res,n
   {
   }
   });  
+
+  router.get("/Load_Country/", function (req, res, next) {
+    try {
+      Client_Accounts.Load_Country(function (err, rows) {
+        if (err) {
+          res.json(err);
+        } else {
+          res.json(rows);
+        }
+      });
+    } catch (e) {
+    } finally {
+    }
+  });
+
 module.exports = router;
 

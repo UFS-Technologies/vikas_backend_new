@@ -39,6 +39,7 @@ router.get("/Search_Item/", function (req, res, next) {
     Item.Search_Item(
       req.query.Item_Name_,
       req.query.Group_Id_,
+      req.query.Item_Code_,
       function (err, rows) {
         if (err) {
           res.json(err);

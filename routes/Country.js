@@ -25,11 +25,11 @@ Country.Save_Country(req.body, function (err, rows)
  {
  }
   });
- router.get('/Search_Country/:Country_CODE_?',function(req,res,next)
+ router.get('/Search_Country/:Country_Name_?',function(req,res,next)
  { 
  try 
  {
-Country.Search_Country( req.params.Country_CODE_,function (err, rows) 
+Country.Search_Country( req.params.Country_Name_,function (err, rows) 
  {
   if (err) 
   {
