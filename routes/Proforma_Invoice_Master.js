@@ -119,6 +119,33 @@ finally
 }
  });
 
+ 
+ router.get('/Product_Code_Change_Packing/:Product_Code_?',function(req,res,next)
+{ 
+try 
+{
+       
+  Proforma_Invoice_Master.Product_Code_Change_Packing(req.params.Product_Code_, function (err, rows) 
+{
+ if (err) 
+ {
+    
+ res.json(err);
+ }
+ else 
+ {
+   res.json(rows);
+ }
+ });
+ }
+catch (e) 
+{
+}
+finally 
+{
+}
+ });
+
  router.get('/Product_Code_Change_packinglist/:Product_Code_?',function(req,res,next)
  { 
  try 
@@ -350,6 +377,27 @@ router.get("/Get_Porforma_Typeahead/", function (req, res, next) {
   } finally {
   }
 });
+
+
+
+
+router.get("/Get_Porforma_Confirmation_Typeahead/", function (req, res, next) {
+  try {
+    Proforma_Invoice_Master.Get_Porforma_Confirmation_Typeahead(
+      req.query.PInvoice_No_,
+      function (err, rows) {
+        if (err) {
+          res.json(err);
+        } else {
+          res.json(rows);
+        }
+      }
+    );
+  } catch (e) {
+  } finally {
+  }
+});
+
 router.get(
   "/Cancel_Production/:Proforma_Invoice_Master_Id_?",
   function (req, res, next) {

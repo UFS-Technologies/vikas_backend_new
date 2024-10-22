@@ -3,6 +3,7 @@ var fs = require("fs");
 var request = require("request");
 const fetch = require("node-fetch");
 const storedProcedure = require("../helpers/stored-procedure");
+const { Console } = require("console");
 var Packing_Plan = {
   Save_Packing_Plan_Master: async function (Packing_Plan_) {
     return new Promise(async (rs, rej) => {
@@ -23,6 +24,8 @@ var Packing_Plan = {
             Packing_Plan_.Company_Id,
             Packing_Plan_.Purchase_Order_Master_Id,
             Packing_Plan_.Packing_Plan_Details,
+            Packing_Plan_.Confirmation_Pack_List_Length,
+            Packing_Plan_.Confirmation_Pack_List_Data,
           ],
           connection
         ).result();
@@ -30,6 +33,7 @@ var Packing_Plan = {
         connection.release();
         rs(result1);
       } catch (err) {
+        console.log(err);
         await connection.rollback();
         rej(err);
         var result2 = [{ Packing_Plan_Id_: 0 }];

@@ -172,6 +172,7 @@ router.get("/Search_Daily_Punching_Data_Report/", function (req, res, next) {
       req.query.Item_Group_Id,
       function (err, rows) {
         if (err) {
+          console.log(err)
           res.json(err);
         } else {
           res.json(rows);

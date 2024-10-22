@@ -10,7 +10,10 @@ var connection = mysql.createPool({
   user: "root",
   password: "sree@1234",
   // database: "vikas",  
-  database: "vikas_28_03_2024", 
+  // database: "vikas_19_09_2024",
+  database: "vikas_27_09_2024",
+   
+  //  database: "vikas_10__06",  //old db
 
 	
 });

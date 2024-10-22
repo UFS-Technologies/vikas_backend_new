@@ -22,6 +22,7 @@ var Item = {
       var Process_ = Item_.Process_List_Data;
       var Raw_Material_ = Item_.Raw_Material_Data;
       var Wastage_ = Item_.Wastage_Data;
+      var Item_Pack_List_ = Item_.Item_Pack_List_Data;
 
       try {
         const result1 = await new storedProcedure(
@@ -57,6 +58,10 @@ var Item = {
             Process_,
             Raw_Material_,
             Wastage_,
+            Item_Pack_List_,
+            Item_.Item_Pack_List_Length,
+            Item_.Pallet_Id,
+            Item_.Pallet_Name,
           ],
           connection
         ).result();
@@ -64,6 +69,7 @@ var Item = {
         connection.release();
         rs(result1);
       } catch (err) {
+        console.log(err);
         await connection.rollback();
         rej(err);
       }
@@ -162,6 +168,22 @@ var Item = {
       callback
     );
   },
+
+
+  Search_Item_Pallet_Typeahead_Purchase_Order: function (ItemName_, Group_Id_, callback) {
+    if (
+      ItemName_ === "undefined" ||
+      ItemName_ === "" ||
+      ItemName_ === undefined
+    )
+      ItemName_ = "";
+    return db.query(
+      "CALL Search_Item_Pallet_Typeahead_Purchase_Order(@ItemName_ :=?,@Group_Id_ :=?)",
+      [ItemName_, Group_Id_],
+      callback
+    );
+  },
+
   //   Get_Stock_Item_Typeahead_PO2: function (
   //     Stock_Id_,
   //     ItemId_,
@@ -235,7 +257,28 @@ var Item = {
     const Wastage = await new storedProcedure("Get_Wastage", [
       Item_Id_,
     ]).result();
-    return { [0]: { Process_List, Raw_Material, Wastage } };
+
+    const Item_Pack_List = await new storedProcedure("Get_Item_Pack_List", [
+      Item_Id_,
+    ]).result();
+
+    const Confirmation_Pack_List = await new storedProcedure("Get_Confirmation_Item_Data", [
+      Item_Id_,
+    ]).result();
+
+    const Confirmation_Pack_ListfromPurchaseOrder = await new storedProcedure("Get_Confirmation_Pack_ListfromPurchaseOrder", [
+      Item_Id_,
+    ]).result();
+
+    const Acceptable_Quantity = await new storedProcedure("Get_Acceptable_Quantity", [
+      Item_Id_,
+    ]).result();
+
+    const Balance_Quantity = await new storedProcedure("Get_Balance_Quantity", [
+      Item_Id_,
+    ]).result();
+
+    return { [0]: { Process_List, Raw_Material, Wastage,Item_Pack_List,Confirmation_Pack_List,Confirmation_Pack_ListfromPurchaseOrder,Acceptable_Quantity,Balance_Quantity } };
   },
 };
 module.exports = Item;

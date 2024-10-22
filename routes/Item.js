@@ -190,6 +190,24 @@ router.get("/Search_Item_Typeahead/", function (req, res, next) {
   }
 });
 
+router.get("/Search_Item_Pallet_Typeahead_Purchase_Order/", function (req, res, next) {
+  try {
+    Item.Search_Item_Pallet_Typeahead_Purchase_Order(
+      req.query.ItemName_,
+      req.query.Group_Id_,
+      function (err, rows) {
+        if (err) {
+          res.json(err);
+        } else {
+          res.json(rows);
+        }
+      }
+    );
+  } catch (e) {
+  } finally {
+  }
+});
+
 router.get("/Get_Stock_Item_Typeahead_PO/", function (req, res, next) {
   try {
     Item.Get_Stock_Item_Typeahead_PO(

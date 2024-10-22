@@ -154,6 +154,12 @@ Product_Code_Change:function(Product_Code_,callback)
     }
     ,
 
+    Product_Code_Change_Packing:function(Product_Code_,callback)
+    { 
+   return db.query("CALL Product_Code_Change_Packing(@Product_Code_ :=?)",[Product_Code_],callback);
+    }
+    ,
+
   Search_Proforma_Invoice_Master:function(Is_Date_Check_,FromDate_,ToDate_,Account_Party_Id_,PONo_,PInvoiceNo_,Status_Id,callback)
     { 
     return db.query("CALL Search_Proforma_Invoice_Master(@Is_Date_Check_ :=?,@FromDate_ :=?,@ToDate_ :=?,@Account_Party_Id_ :=?,@PONo_ :=?,@InvoiceNo_ :=?,@Status_Id :=?)",
@@ -203,6 +209,13 @@ Get_Shipment_Details_For_Performa_Invoice:function(Shipment_Master_Id_,callback)
         if (PInvoice_No_==='undefined'||PInvoice_No_===''||PInvoice_No_===undefined )
         PInvoice_No_='';
         return db.query("CALL Get_Porforma_Typeahead(@PInvoice_No_ :=?)",[PInvoice_No_],callback);
+    },
+
+    Get_Porforma_Confirmation_Typeahead:function(PInvoice_No_,callback)
+    { 
+        if (PInvoice_No_==='undefined'||PInvoice_No_===''||PInvoice_No_===undefined )
+        PInvoice_No_='';
+        return db.query("CALL Get_Porforma_Confirmation_Typeahead(@PInvoice_No_ :=?)",[PInvoice_No_],callback);
     },
 };
 module.exports=Proforma_Invoice_Master;
