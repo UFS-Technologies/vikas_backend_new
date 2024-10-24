@@ -37,6 +37,8 @@ var Purchase_Master = {
             Purchase_Master_.Purchase_Details,
             Purchase_Master_.Purchase_Master_Order_Id,
             Purchase_Master_.Group_Id,
+            Purchase_Master_.Purchase_Order_Master_Id,
+            Purchase_Master_.Confirmation_Master_Id,
           ],
           connection
         ).result();
@@ -65,6 +67,21 @@ var Purchase_Master = {
       callback
     );
   },
+
+
+  Get_Comfirmation_Purchase: function (
+    Confirmation_Purchase_Order_Master_Id,
+    Confirmation_Master_Id,
+    callback
+  ) {
+    return db.query(
+      "CALL Get_Comfirmation_Purchase(@Confirmation_Purchase_Order_Master_Id :=?,@Confirmation_Master_Id :=?)",
+      [Confirmation_Purchase_Order_Master_Id, Confirmation_Master_Id],
+      callback
+    );
+  },
+
+
   Get_Purchase_Master: function (Purchase_Master_Id_, callback) {
     return db.query(
       "CALL Get_Purchase_Master(@Purchase_Master_Id_ :=?)",
@@ -249,6 +266,8 @@ var Purchase_Master = {
             FinishedGoods_Purchase_Master_.User_Id,
             FinishedGoods_Purchase_Master_.Description,
             FinishedGoods_Purchase_Master_.FinishedGoods_Purchase_Details,
+            FinishedGoods_Purchase_Master_.Confirmation_Purchase_Order_Master_Id,
+            FinishedGoods_Purchase_Master_.Confirmation_Master_Id,
           ],
           connection
         ).result();

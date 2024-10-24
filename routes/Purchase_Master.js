@@ -116,6 +116,31 @@ router.get(
     }
   }
 );
+
+
+router.get(
+  "/Get_Comfirmation_Purchase/:Confirmation_Purchase_Order_Master_Id?/:Confirmation_Master_Id ?",
+  function (req, res, next) {
+    try {
+      Purchase_Master.Get_Comfirmation_Purchase(
+        req.params.Confirmation_Purchase_Order_Master_Id,
+        req.params.Confirmation_Master_Id,
+        function (err, rows) {
+          if (err) {
+            res.json(err);
+          } else {
+            res.json(rows);
+          }
+        }
+      );
+    } catch (e) {
+    } finally {
+    }
+  }
+);
+
+
+
 router.get(
   "/Delete_Purchase_Master/:Purchase_Master_Id_?/:Company_Id_ ?",
   function (req, res, next) {
@@ -228,6 +253,7 @@ router.post(
       );
       return res.send(resp);
     } catch (e) {
+      console.log(e)
       return res.send(e);
     }
   }

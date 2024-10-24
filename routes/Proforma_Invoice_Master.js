@@ -299,6 +299,27 @@ router.get(
   }
 );
 
+
+router.get(
+  "/get_pallet_data/:Shipment_Master_Id_?",
+  function (req, res, next) {
+    try {
+      Proforma_Invoice_Master.get_pallet_data(
+        req.params.Shipment_Master_Id_,
+        function (err, rows) {
+          if (err) {
+            res.json(err);
+          } else {
+            res.json(rows);
+          }
+        }
+      );
+    } catch (e) {
+    } finally {
+    }
+  }
+);
+
 router.get(
   "/Get_Shipment_Details_For_Performa_Invoice/:Shipment_Master_Id_?",
   function (req, res, next) {

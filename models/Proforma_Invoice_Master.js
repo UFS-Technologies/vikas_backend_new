@@ -191,6 +191,12 @@ Get_Shipment_Master_For_Performa_Invoice:function(Shipment_Master_Id_,callback)
     { 
     return db.query("CALL Get_Shipment_Master_For_Performa_Invoice(@Shipment_Master_Id_ :=?)",[Shipment_Master_Id_],callback);
     } ,
+
+    get_pallet_data:function(Shipment_Master_Id_,callback)
+    { 
+    return db.query("CALL get_pallet_data(@Shipment_Master_Id_ :=?)",[Shipment_Master_Id_],callback);
+    } ,
+
 Get_Shipment_Details_For_Performa_Invoice:function(Shipment_Master_Id_,callback)
     { 
     return db.query("CALL Get_Shipment_Details_For_Performa_Invoice(@Shipment_Master_Id_ :=?)",[Shipment_Master_Id_],callback);
