@@ -271,7 +271,9 @@ router.get("/Get_Item_Data/:Item_Id_?", async (req, res, next) => {
   try {
     const result = await Item.Get_Item_Data(req.params.Item_Id_);
     res.json(result);
+    console.log(result)
   } catch (e) {
+    console.log(e)
     res.send(e);
   } finally {
   }
