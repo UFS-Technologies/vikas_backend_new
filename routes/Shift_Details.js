@@ -268,6 +268,7 @@ router.post("/Save_Packing/", async function (req, res, next) {
     const resp = await Shift_Details.Save_Packing(req.body);
     return res.send(resp);
   } catch (e) {
+    console.log(e)
     return res.send(e);
   }
 });

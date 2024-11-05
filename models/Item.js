@@ -278,7 +278,12 @@ var Item = {
       Item_Id_,
     ]).result();
 
-    return { [0]: { Process_List, Raw_Material, Wastage,Item_Pack_List,Confirmation_Pack_List,Confirmation_Pack_ListfromPurchaseOrder,Acceptable_Quantity,Balance_Quantity } };
+    const Confirmation_Pack_ListfromPacking = await new storedProcedure("Get_Confirmation_Pack_ListfromPacking", [
+      Item_Id_,
+    ]).result();
+
+
+    return { [0]: { Process_List, Raw_Material, Wastage,Item_Pack_List,Confirmation_Pack_List,Confirmation_Pack_ListfromPurchaseOrder,Acceptable_Quantity,Balance_Quantity,Confirmation_Pack_ListfromPacking } };
   },
 };
 module.exports = Item;

@@ -250,6 +250,7 @@ var Shift_Details = {
       let result1;
       var connection = await pool.getConnection();
       var Wastage_ = Packing_.Packing_Details_Wastage;
+      var Damage_ = Packing_.Damage_Details_Type_Data;
       try {
         console.log(Packing_);
         const result1 = await new storedProcedure(
@@ -284,6 +285,9 @@ var Shift_Details = {
             Packing_.Wastage_Length,
             Packing_.Packing_Details,
             Wastage_,
+            Damage_,
+            Packing_.Confirmation_Pack_List_Length,
+            Packing_.Confirmation_Pack_List_Data,
           ],
           connection
         ).result();
