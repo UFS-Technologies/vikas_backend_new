@@ -86,6 +86,7 @@ var Shift_Details = {
             Shift_End_.status,
             Shift_End_.Damage_Type_Id,
             Shift_End_.Damage_Type_Name,
+            Shift_End_.Scrap_Quantity,
           ],
           connection
         ).result();

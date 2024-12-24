@@ -4,14 +4,15 @@ var Damaged_Item=
 { 
 Save_Damaged_Item:function(Damaged_Item_,callback)
     { 
-    return db.query("CALL Save_Damaged_Item("+"@Damaged_Item_Id_ :=?,"+"@Item_Id_ :=?,"+"@Product_Code_ :=?,"+"@Qty_ :=?,"+"@Rate_ :=? )"
-    ,[Damaged_Item_.Damaged_Item_Id,Damaged_Item_.Item_Id,Damaged_Item_.Product_Code,Damaged_Item_.Qty,Damaged_Item_.Rate ],callback);
+        console.log(Damaged_Item_);
+    return db.query("CALL Save_Damaged_Item("+"@Damaged_Item_Id_ :=?,"+"@Item_Id_ :=?,"+"@Product_Code_ :=?,"+"@Qty_ :=?,"+"@Rate_ :=?,"+"@Company_Id_ :=?,"+"@Company_Name_ :=?,"+"@WareHouse_Id_ :=?,"+"@WareHouse_Name_ :=?,"+"@Stock_Id_ :=? )"
+    ,[Damaged_Item_.Damaged_Item_Id,Damaged_Item_.Item_Id,Damaged_Item_.Product_Code,Damaged_Item_.Qty,Damaged_Item_.Rate,Damaged_Item_.Company_Id,Damaged_Item_.Company_Name,Damaged_Item_.WareHouse_Id,Damaged_Item_.WareHouse_Name ,Damaged_Item_.Stock_Id],callback);
     },
 Delete_Damaged_Item:function(Damaged_Item_Id_,callback)
     { 
     return db.query("CALL Delete_Damaged_Item(@Damaged_Item_Id_ :=?)",[Damaged_Item_Id_],callback);
     },
-// Get_Client_Accounts:function(Client_Accounts_Id_,callback)
+// Get_Client_Accounts:function(Client_Accounts_Id_,callback) Company_Id Company_Name WareHouse_Id WareHouse_Name
 //     { 
 //     return db.query("CALL Get_Client_Accounts(@Client_Accounts_Id_ :=?)",[Client_Accounts_Id_],callback);
 //     } ,

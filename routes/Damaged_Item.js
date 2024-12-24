@@ -9,7 +9,7 @@ router.post('/Save_Damaged_Item/',function(req,res,next)
   {
   if (err) 
   {
-    
+    console.log(err)
   res.json(err);
   }
   else 
@@ -20,7 +20,7 @@ router.post('/Save_Damaged_Item/',function(req,res,next)
   }
   catch (e) 
   {
-    
+    console.log(e)
   }
   finally 
   {

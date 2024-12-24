@@ -247,6 +247,20 @@ var Item = {
     );
   },
 
+  Get_Stock_Item_Typeahead_PO_te_new: function (ItemName_, Item_Group_, callback) {
+    if (
+      ItemName_ === "undefined" ||
+      ItemName_ === "" ||
+      ItemName_ === undefined
+    )
+      ItemName_ = "";
+    return db.query(
+      "CALL Get_Stock_Item_Typeahead_PO_te_new(@ItemName_ :=?,@Item_Group_ :=?)",
+      [ItemName_, Item_Group_],
+      callback
+    );
+  },
+
   Get_Item_Data: async function (Item_Id_) {
     const Process_List = await new storedProcedure("Get_Process_List", [
       Item_Id_,

@@ -244,6 +244,27 @@ router.get("/Get_Stock_Item_Typeahead_PO_te/", function (req, res, next) {
   }
 });
 
+
+
+router.get("/Get_Stock_Item_Typeahead_PO_te_new/", function (req, res, next) {
+  try {
+    Item.Get_Stock_Item_Typeahead_PO_te_new(
+      req.query.ItemName_,
+      req.query.Item_Group_,
+      function (err, rows) {
+        if (err) {
+          res.json(err);
+        } else {
+          res.json(rows);
+        }
+      }
+    );
+  } catch (e) {
+  } finally {
+  }
+});
+
+
 router.get(
   "/Get_Stock_Item_Typeahead_PO2/:Stock_Id_ ?/:ItemId_?/:ItemName_?",
   function (req, res, next) {

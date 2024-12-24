@@ -146,6 +146,7 @@ router.post("/Save_Gate_Pass_In_Master/", async function (req, res, next) {
     const resp = await Waste_Out_Master.Save_Gate_Pass_In_Master(req.body);
     return res.send(resp);
   } catch (e) {
+    console.log(e);
     return res.send(e);
   }
 });

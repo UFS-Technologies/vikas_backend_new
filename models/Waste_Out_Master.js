@@ -146,6 +146,7 @@ var Waste_Out_Master = {
     return new Promise(async (rs, rej) => {
       const pool = db.promise();
       let result1;
+      console.log( Gate_Pass_In_Master_.Gate_Pass_In_Details);
       var connection = await pool.getConnection();
       try {
         const result1 = await new storedProcedure(
