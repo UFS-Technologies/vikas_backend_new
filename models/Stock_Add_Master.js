@@ -373,5 +373,71 @@ var Stock_Add_Master = {
       callback
     );
   },
+
+  Save_Stock_Out_Master: async function (Stock_Out_Master_) {
+    console.log(Stock_Out_Master_);
+    return new Promise(async (rs, rej) => {
+      const pool = db.promise();
+      let result1;
+      var connection = await pool.getConnection();
+      try {
+        const result1 = await new storedProcedure(
+          "Save_Stock_Out_Master",
+          [
+            Stock_Out_Master_.Stock_Out_Master_Id,
+            Stock_Out_Master_.Date,
+            Stock_Out_Master_.Description,
+            Stock_Out_Master_.User_Id,
+            Stock_Out_Master_.Company_Id,
+            Stock_Out_Master_.Stock_Out_Details,
+          ],
+          connection
+        ).result();
+        //await connection.commit();
+        connection.release();
+        rs(result1);
+      } catch (err) {
+        console.log(err);
+        //await connection.rollback();
+        rej(err);
+        var result2 = [{ Stock_Out_Master_Id_: 0 }];
+        rs(result2);
+      } finally {
+        connection.release();
+      }
+    });
+  },
+  Delete_Stock_Out_Master: function (
+    Stock_Out_Master_Id_,
+    Company_Id_,
+    callback
+  ) {
+    return db.query(
+      "CALL Delete_Stock_Out_Master(@Stock_Out_Master_Id_ :=?,@Company_Id_:=?)",
+      [Stock_Out_Master_Id_, Company_Id_],
+      callback
+    );
+  },
+  Get_Stock_Out_Details: function (Stock_Out_Master_Id_, callback) {
+    return db.query(
+      "CALL Get_Stock_Out_Details(@Stock_Out_Master_Id_ :=?)",
+      [Stock_Out_Master_Id_],
+      callback
+    );
+  },
+  Search_Stock_Out_Master: function (
+    FromDate_,
+    ToDate_,
+    Is_Date_Check_,
+    callback
+  ) {
+    return db.query(
+      "CALL Search_Stock_Out_Master(@FromDate_ :=?,@ToDate_ :=?,@Is_Date_Check_ :=?)",
+      [FromDate_, ToDate_, Is_Date_Check_],
+      callback
+    );
+  },
+
+
 };
 module.exports = Stock_Add_Master;

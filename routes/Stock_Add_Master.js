@@ -466,4 +466,79 @@ router.get(
   }
 );
 
+
+router.post("/Save_Stock_Out_Master/", async function (req, res, next) {
+  try {
+    console.log(req);
+    const resp = await Stock_Add_Master.Save_Stock_Out_Master(req.body);
+    return res.send(resp);
+  } catch (e) {
+    console.log(e);
+    return res.send(e);
+  }
+});
+router.get(
+  "/Search_Stock_Out_Master/:From_Date_?/:To_Date_?/:Is_Date_Check_ ?",
+  function (req, res, next) {
+    try {
+      Stock_Add_Master.Search_Stock_Out_Master(
+        req.params.From_Date_,
+        req.params.To_Date_,
+        req.params.Is_Date_Check_,
+        function (err, rows) {
+          if (err) {
+            console.log(err)
+            res.json(err);
+          } else {
+            res.json(rows);
+          }
+        }
+      );
+    } catch (e) {
+    } finally {
+    }
+  }
+);
+
+
+router.get(
+  "/Get_Stock_Out_Details/:Stock_Out_Master_Id_?",
+  function (req, res, next) {
+    try {
+      Stock_Add_Master.Get_Stock_Out_Details(
+        req.params.Stock_Out_Master_Id_,
+        function (err, rows) {
+          if (err) {
+            res.json(err);
+          } else {
+            res.json(rows);
+          }
+        }
+      );
+    } catch (e) {
+    } finally {
+    }
+  }
+);
+router.get(
+  "/Delete_Stock_Out_Master/:Stock_Out_Master_Id_?/:Company_Id_ ?",
+  function (req, res, next) {
+    try {
+      Stock_Add_Master.Delete_Stock_Out_Master(
+        req.params.Stock_Out_Master_Id_,
+        req.params.Company_Id_,
+        function (err, rows) {
+          if (err) {
+            res.json(err);
+          } else {
+            res.json(rows);
+          }
+        }
+      );
+    } catch (e) {
+    } finally {
+    }
+  }
+);
+
 module.exports = router;
