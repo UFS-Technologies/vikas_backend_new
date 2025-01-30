@@ -9,6 +9,8 @@ router.post('/Save_Employee_Details/',async function(req,res,next)
       return res.send(resp);
       }
       catch(e){
+            console.log('e: ', e);
+
       return res.send(e);
       }
       });

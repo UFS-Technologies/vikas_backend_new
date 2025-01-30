@@ -20,7 +20,7 @@ var Proforma_Invoice_Master=
             Proforma_Invoice_Master_.Delivery_Term, Proforma_Invoice_Master_.Delivery_Period,Proforma_Invoice_Master_.Container,Proforma_Invoice_Master_.Container_Id, Proforma_Invoice_Master_.Payment_term, Proforma_Invoice_Master_.Bank_Id,
             Proforma_Invoice_Master_.Currency_Rate, Proforma_Invoice_Master_.PO_Date,Proforma_Invoice_Master_.Purchase_Order_Master_Id,Proforma_Invoice_Master_.Pack_Length,
             Proforma_Invoice_Master_.Total_Packing_packages, Proforma_Invoice_Master_.Total_Packing,Proforma_Invoice_Master_.Packing_NetWeight, Proforma_Invoice_Master_.Packing_GrossWeight,Proforma_Invoice_Master_.Expected_Date,
-            Proforma_Invoice_Master_.Proforma_invoice_details,Proforma_Invoice_Master_.Proforma_Pack_List], connection)).result();        
+            Proforma_Invoice_Master_.Proforma_invoice_details,Proforma_Invoice_Master_.Proforma_Pack_List,Proforma_Invoice_Master_.Reference_Field], connection)).result();        
                 await connection.commit();
                  connection.release();
                  
@@ -60,7 +60,7 @@ try {console.log(Proforma_Invoice_Master_);
        Proforma_Invoice_Master_.Delivery_Term, Proforma_Invoice_Master_.Delivery_Period,Proforma_Invoice_Master_.Container,Proforma_Invoice_Master_.Container_Id, Proforma_Invoice_Master_.Payment_term, Proforma_Invoice_Master_.Bank_Id,
        Proforma_Invoice_Master_.Currency_Rate, Proforma_Invoice_Master_.PO_Date,Proforma_Invoice_Master_.Purchase_Order_Master_Id,Proforma_Invoice_Master_.Pack_Length,
        Proforma_Invoice_Master_.Total_Packing_packages, Proforma_Invoice_Master_.Total_Packing,Proforma_Invoice_Master_.Packing_NetWeight, Proforma_Invoice_Master_.Packing_GrossWeight,Proforma_Invoice_Master_.Expected_Date,
-       Proforma_Invoice_Master_.Proforma_invoice_details,Proforma_Invoice_Master_.Proforma_Pack_List,Proforma_Invoice_Master_.Proforma_Invoice_Master_Id], connection)).result();        
+       Proforma_Invoice_Master_.Proforma_invoice_details,Proforma_Invoice_Master_.Proforma_Pack_List,Proforma_Invoice_Master_.Proforma_Invoice_Master_Id,Proforma_Invoice_Master_.Reference_Field], connection)).result();        
            await connection.commit();
             connection.release();
             

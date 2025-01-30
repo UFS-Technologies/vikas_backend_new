@@ -289,6 +289,10 @@ var Shift_Details = {
             Damage_,
             Packing_.Confirmation_Pack_List_Length,
             Packing_.Confirmation_Pack_List_Data,
+            Packing_.Packing_Plan_Master_Id,
+            Packing_.Reference_Field,
+            Packing_.PInvoice_No,
+            Packing_.PONo,
           ],
           connection
         ).result();

@@ -208,12 +208,14 @@ router.get(
         function (err, rows) {
           if (err) {
             res.json(err);
+            console.log('err: ', err);
           } else {
             res.json(rows);
           }
         }
       );
     } catch (e) {
+      console.log('e: ', e);
     } finally {
     }
   }
@@ -347,12 +349,14 @@ router.get(
         function (err, rows) {
           if (err) {
             res.json(err);
+            console.log('err: ', err);
           } else {
             res.json(rows);
           }
         }
       );
     } catch (e) {
+      console.log('e: ', e);
     } finally {
     }
   }

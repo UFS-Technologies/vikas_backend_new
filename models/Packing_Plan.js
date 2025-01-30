@@ -26,6 +26,9 @@ var Packing_Plan = {
             Packing_Plan_.Packing_Plan_Details,
             Packing_Plan_.Confirmation_Pack_List_Length,
             Packing_Plan_.Confirmation_Pack_List_Data,
+            Packing_Plan_.Reference_Field,
+            Packing_Plan_.PInvoice_No,
+            Packing_Plan_.PONo,
           ],
           connection
         ).result();
