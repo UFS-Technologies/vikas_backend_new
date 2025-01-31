@@ -30,6 +30,23 @@ router.post("/Save_Pallets_Transfer/", function (req, res, next) {
   }
 });
 
+
+router.post("/Save_PurchaseOrder_List/", function (req, res, next) {
+  try {
+    Stock_Transfer_Master.Save_PurchaseOrder_List(req.body, function (err, rows) {
+      if (err) {
+        console.log(err)
+        res.json(err);
+      } else {
+        res.json(rows);
+      }
+    });
+  } catch (e) {
+    console.log(e)
+  } finally {
+  }
+});
+
 router.post("/Save_Pallets_Received/", function (req, res, next) {
   try {
     Stock_Transfer_Master.Save_Pallets_Received(req.body, function (err, rows) {
@@ -106,6 +123,26 @@ router.get("/Search_Pallets_Transfer", function (req, res, next) {
   } finally {
   }
 });
+
+router.get("/Search_PurchaseOrder_List", function (req, res, next) {
+  try {
+    Stock_Transfer_Master.Search_PurchaseOrder_List(
+      req.query.FromDate_,
+      req.query.ToDate_,
+      req.query.Is_Date_Check_,
+      function (err, rows) {
+        if (err) {
+          res.json(err);
+        } else {
+          res.json(rows);
+        }
+      }
+    );
+  } catch (e) {
+  } finally {
+  }
+});
+
 
 router.get("/Search_Pallets_Received", function (req, res, next) {
   try {

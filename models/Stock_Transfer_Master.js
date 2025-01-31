@@ -91,6 +91,34 @@ var Stock_Transfer_Master = {
     );
   },
 
+
+  
+  Save_PurchaseOrder_List: function (Pallets_Master_, callback) {
+    console.log(Pallets_Master_);
+    return db.query(
+      "CALL Save_PurchaseOrder_List(" +
+        "@PurchaseOrder_List_Id_ :=?," +
+        "@Supplier_Id_ :=?," +
+        "@Supplier_Name_ :=?," +
+        "@Quantity_Order_ :=?," +
+        "@Quantity_Received_ :=?," +
+        "@Order_No_ :=?," +
+        "@Order_Date_ :=?" +
+        ")",
+      [
+        Pallets_Master_.PurchaseOrder_List_Id,
+        Pallets_Master_.Supplier_Id,
+        Pallets_Master_.Supplier_Name,
+        Pallets_Master_.Quantity_Order,
+        Pallets_Master_.Quantity_Received,
+        Pallets_Master_.Order_No,
+        Pallets_Master_.Order_Date,
+      ],
+      callback
+    );
+  },
+
+
   Save_Pallets_Received: function (Pallets_Master_, callback) {
     return db.query(
       "CALL Save_Pallets_Received(" +
@@ -247,6 +275,20 @@ var Stock_Transfer_Master = {
       callback
     );
   },
+
+  Search_PurchaseOrder_List: function (
+    From_Date_,
+    To_Date_,
+    Is_Date_Check_,
+    callback
+  ) {
+    return db.query(
+      "CALL Search_PurchaseOrder_List(@From_Date_ :=?,@To_Date_ :=?,@Is_Date_Check_ :=?)",
+      [From_Date_, To_Date_, Is_Date_Check_],
+      callback
+    );
+  },
+
 
   Search_Pallets_Received: function (
     From_Date_,

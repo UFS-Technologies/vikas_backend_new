@@ -190,6 +190,34 @@ finally
 {
 }
 });
+
+
+
+
+router.get('/Get_production_Processdetails/:Item_Id_?',function(req,res,next)
+{ 
+try 
+{
+  Production.Get_production_Processdetails(req.params.Item_Id_, function (err, rows) 
+{
+if (err) 
+{
+res.json(err);
+}
+else 
+{
+res.json(rows);
+}
+});
+}
+catch (e) 
+{
+}
+finally 
+{
+}
+});
+
 router.get('/Delete_Production/:Production_Master_Id_?',function(req,res,next)
 { 
 try 

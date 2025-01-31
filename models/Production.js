@@ -93,6 +93,12 @@ Get_production_Master:function(Production_Master_Id_,callback)
 return db.query("CALL Get_production_Master(@Production_Master_Id_ :=?)",[Production_Master_Id_],callback);
 },
 
+Get_production_Processdetails:function(Item_Id_,callback)
+{ 
+return db.query("CALL Get_production_Processdetails(@Item_Id_ :=?)",[Item_Id_],callback);
+},
+
+
 Delete_Production:function(Production_Master_Id_,callback)
 { 
 return db.query("CALL Delete_Production(@Production_Master_Id_ :=?)",[Production_Master_Id_],callback);
